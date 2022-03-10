@@ -31,6 +31,10 @@ export class AppComponent implements OnInit {
     (<FormArray>this.signupForm.get('hobbies')).push(control);
   }
 
+  getControls() {
+    return (<FormArray>this.signupForm.get('hobbies')).controls;
+  }
+
   forbiddenNames(control: FormControl): {[s: string]: boolean} {
     if (this.forbiddenUsernames.indexOf(control.value) !== -1) {
       return {'nameIsForbidden': true}
